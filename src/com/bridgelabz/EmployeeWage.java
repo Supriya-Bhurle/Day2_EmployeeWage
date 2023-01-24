@@ -10,37 +10,49 @@ public class EmployeeWage {
     static final  int WORKING_HOURS_PER_MONTH = 100;
     static final int WORKING_DAYS_PER_MONTH = 20;
 
+
     public static void main(String[] args) {
         System.out.println("welcome to Employee wage program");
-        int totalWage = 0;
+        refactor();
+    }
+    public static void refactor(){
+
         int dayCount = 1;
-        int workingHours = 0;
+        int workingHours= 0;
+        int totalWage = 0;
 
-        while (dayCount <=WORKING_DAYS_PER_MONTH &&  workingHours < WORKING_HOURS_PER_MONTH  ) {
-              int employeeCheck = (int) Math.floor(Math.random() * 10) % 3;
-              System.out.println(employeeCheck);
-              int dailyWage = 0;
+        while (dayCount <=WORKING_DAYS_PER_MONTH && workingHours <= WORKING_HOURS_PER_MONTH )
+        {
 
-        switch (employeeCheck) {
-            case IS_PART_TIME:
-                dailyWage = PART_TIME_HOUR * WAGE_PER_HOUR;
-                workingHours += PART_TIME_HOUR;
-                System.out.println("Employee is part time" + dailyWage);
-                break;
-            case IS_FULL_TIME:
-                dailyWage = FULL_DAY_HOUR * WAGE_PER_HOUR;
-                workingHours +=FULL_DAY_HOUR;
-                System.out.println("Employee is full time " + dailyWage);
-                break;
-            default:
-                System.out.println("Employee is absent");
-                break;
+            int employeeCheck= (int)Math.floor(Math.random()*10) % 3;
+            System.out.println(employeeCheck);
+
+            int dailyWage = 0;
+
+            switch (employeeCheck) {
+                case IS_FULL_TIME:
+                    dailyWage = FULL_DAY_HOUR * WAGE_PER_HOUR;
+                    workingHours += FULL_DAY_HOUR;
+                    System.out.println("Employee is Full time");
+                    break;
+                case IS_PART_TIME:
+                    dailyWage = PART_TIME_HOUR * WAGE_PER_HOUR;
+                    workingHours += PART_TIME_HOUR;
+                    System.out.println("Employee is Part time");
+                    break;
+                default:
+                    System.out.println("Employee is Absent");
+                    break;
+            }
+
+            dayCount++;
+            totalWage = totalWage + dailyWage;
         }
-        dayCount++;
-        totalWage = totalWage + dailyWage;
-    }
-        System.out.println("Total hours "+ workingHours);
-        System.out.println("daily wage for month "+ totalWage);
+
+        System.out.println ("WorkingHour =>" + workingHours );
+        System.out.println ("total wage for month" + totalWage );
+
 
     }
-}
+    }
+
